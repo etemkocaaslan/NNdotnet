@@ -1,10 +1,13 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace NNdotnet
+﻿namespace NNdotnet
 {
-    public class StepActivation(double treshold) : IActivation
+    public class StepActivation : IActivation
     {
-        private double _treshold = treshold;
+        private double _treshold;
+
+        public StepActivation(double treshold)
+        {
+            _treshold = treshold;
+        }
 
         public double CalculateOutput(double weightedInput)
         {
