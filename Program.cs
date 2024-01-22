@@ -1,11 +1,13 @@
-﻿using NNdotnet;
+﻿using NNdotnet.src.Models;
+using NNdotnet.src.Utilities;
 
 NeuralNetwork network = new(3);
 
 LayerFactory layerFactory = new();
 
-network.Add(layerFactory.CreateNeuralLayer(3, new RectifiedActivation(), new WeigthedInput()));
-network.Add(layerFactory.CreateNeuralLayer(1, new SigmoidActivation(0.1), new WeigthedInput()));
+network.Add(LayerFactory.Create(3, new RectifiedActivation(), new WeigthedInput()));
+network.Add(LayerFactory.Create(3, new RectifiedActivation(), new WeigthedInput()));
+network.Add(LayerFactory.Create(1, new SigmoidActivation(0.1), new WeigthedInput()));
 
 network.PushExpectedValues(
     [
