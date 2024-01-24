@@ -1,4 +1,5 @@
-﻿using NNdotnet.src.Models;
+﻿using NNdotnet.src.ActivationFunctions;
+using NNdotnet.src.Models;
 using NNdotnet.src.Utilities;
 
 NeuralNetwork network = new(3);
@@ -22,13 +23,13 @@ network.PushExpectedValues(
 
 network.Train(
     [
-        [150, 2, 0],
+        [150 ,  2, 0],
         [1002, 56, 1],
         [1060, 59, 1],
-        [200, 3, 0],
-        [300, 3, 1],
-        [120, 1, 0],
-        [80, 1, 0],
+        [200 ,  3, 0],
+        [300 ,  3, 1],
+        [120 ,  1, 0],
+        [80  ,  1, 0],
     ], 10000000);
 
 network.PushInputValues([1054, 54, 1]);

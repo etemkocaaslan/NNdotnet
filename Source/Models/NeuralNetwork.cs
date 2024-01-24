@@ -1,4 +1,5 @@
-﻿using NNdotnet.src.Utilities;
+﻿using NNdotnet.src.ActivationFunctions;
+using NNdotnet.src.Utilities;
 
 namespace NNdotnet.src.Models
 {
