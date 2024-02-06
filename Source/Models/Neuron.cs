@@ -2,49 +2,37 @@
 
 namespace NNdotnet.src.Models
 {
-    public class Neuron : INeuron
+    public class Neuron(IActivation activation, IInput input) : INeuron
     {
-        private IActivation activationFunction;
-        private IInput inputFunction;
+        private readonly IActivation activationFunction = activation;
+        private readonly IInput inputFunction = input;
 
-        public List<ISynapse> Inputs { get; set; }
-        public List<ISynapse> Outputs { get; set; }
+        public List<ISynapse> Inputs { get; set; } = []; //List<ISynapse>
+        public List<ISynapse> Outputs { get; set; } = []; //List<ISynapse>
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; private set; } = Guid.NewGuid();
 
         public double PartialDerivate { get; set; }
 
-        public Neuron(IActivation activation, IInput input)
-        {
-            Id = Guid.NewGuid();
-            Inputs = []; //List<ISynapse>
-            Outputs = []; //List<ISynapse>
-
-            inputFunction = input;
-            activationFunction = activation;
-        }
-
         public void AddInputNeuron(INeuron inputNeuron)
         {
-            Synapse synapse = new Synapse(inputNeuron, this);
+            Synapse synapse = new(inputNeuron, this);
             Inputs.Add(synapse);
             inputNeuron.Outputs.Add(synapse);
         }
 
         public void AddOutputNeuron(INeuron outputNeuron)
         {
-            Synapse synapse = new Synapse(outputNeuron, this);
+            Synapse synapse = new(outputNeuron, this);
             Outputs.Add(synapse);
             outputNeuron.Inputs.Add(synapse);
         }
 
         public void AddInputSynapse(double inputValue)
         {
-            InputSynapse inputSynapse = new InputSynapse(this, inputValue);
+            InputSynapse inputSynapse = new(this, inputValue);
             Inputs.Add(inputSynapse);
         }
-
-
 
         public double CalculateOutput()
         {
