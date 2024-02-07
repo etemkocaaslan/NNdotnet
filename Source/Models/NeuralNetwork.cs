@@ -9,15 +9,13 @@ namespace NNdotnet.src.Models
 
         readonly List<Layer> _layers;
         readonly double alpha;
-        double[][] _target;
+        double[][]? _target;
 
         public NeuralNetwork(int numberOfInputNeurons)
         {
             _layers = [];
             _layerFactory = new LayerFactory();
-
             CreateInputLayer(numberOfInputNeurons);
-
             alpha = 0.2;
         }
 
