@@ -78,7 +78,7 @@ namespace NNdotnet.src.Models
 
         private void CreateInputLayer(int numberOfInputNeurons)
         {
-            var inputLayer = LayerFactory.Create(numberOfInputNeurons, new RectifiedActivation(), new WeigthedInput());
+            var inputLayer = LayerFactory.Create(numberOfInputNeurons, new RectifiedActivation(), new WeightedInput());
             inputLayer.Neurons.ForEach(neuron => neuron.AddInputSynapse(0));
             Add(inputLayer);
         }

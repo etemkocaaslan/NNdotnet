@@ -6,9 +6,9 @@ NeuralNetwork network = new(3);
 
 LayerFactory layerFactory = new();
 
-network.Add(LayerFactory.Create(3, new RectifiedActivation(), new WeigthedInput()));
-network.Add(LayerFactory.Create(3, new RectifiedActivation(), new WeigthedInput()));
-network.Add(LayerFactory.Create(1, new SigmoidActivation(0.1), new WeigthedInput()));
+network.Add(LayerFactory.Create(3, new RectifiedActivation(), new WeightedInput()));
+network.Add(LayerFactory.Create(3, new RectifiedActivation(), new WeightedInput()));
+network.Add(LayerFactory.Create(1, new SigmoidActivation(0.1), new WeightedInput()));
 
 network.PushExpectedValues(
     [

@@ -2,7 +2,7 @@
 
 namespace NNdotnet.src.Models
 {
-    public class WeigthedInput : IInput
+    public class WeightedInput : IInput
     {
         public double CalculateInput(List<ISynapse> inputs)
         {
