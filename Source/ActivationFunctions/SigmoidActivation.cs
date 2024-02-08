@@ -7,9 +7,9 @@ namespace NNdotnet.src.ActivationFunctions
         private double _coeficient = coeficient;
         public double CalculateOutput(double weightedInput)
         {
-            return 1 / (1 + Math.Exp(-weightedInput * Coeficient));
+            return 1 / (1 + Math.Exp(-weightedInput * _coeficient));
         }
 
-        public double Coeficient { get => _coeficient; set => _coeficient = value; }
+        //public double Coeficient { get => _coeficient; set => _coeficient = value; }
     }
 }
