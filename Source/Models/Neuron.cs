@@ -6,9 +6,8 @@ namespace NNdotnet.src.Models
     {
         private readonly IActivation activationFunction = activation;
         private readonly IInput inputFunction = input;
-
-        public List<ISynapse> Inputs { get; set; } = []; //List<ISynapse>
-        public List<ISynapse> Outputs { get; set; } = []; //List<ISynapse>
+        public List<ISynapse> Inputs { get; set; } = new List<ISynapse>();
+        public List<ISynapse> Outputs { get; set; } = new List<ISynapse>();
 
         public Guid Id { get; private set; } = Guid.NewGuid();
 
